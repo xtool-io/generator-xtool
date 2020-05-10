@@ -1,38 +1,36 @@
 "use strict";
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
+const Generator = require("yeoman-generator");
+const project = require("../@core/project.js");
+const ProjectType = require("../@core/project-type");
 
 module.exports = class extends Generator {
-  prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(`Welcome to the sweet ${chalk.red('generator-xtool')} generator!`)
-    );
-
+  async prompting() {
     const prompts = [
       {
-        type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        type: "confirm",
+        name: "someAnswer",
+        message: "Bem vindo as opções de um projeto Angular?",
+        default: true,
+        when: (await project.getType()) === ProjectType.ANGULAR
+      },
+      {
+        type: "confirm",
+        name: "someAnswer",
+        message: "Bem vindo as opções de um projeto Fullstack?",
+        default: true,
+        when: (await project.getType()) === ProjectType.FULLSTACK
       }
     ];
-
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    });
+    this.answers = await this.prompt(prompts);
   }
 
   writing() {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
-  }
-
-  install() {
-    this.installDependencies();
+    console.log("Writing...");
+    project.getType().then(value => console.log(value));
+    console.log(this.answers);
+    // This.fs.copy(
+    //   this.templatePath('dummyfile.txt'),
+    //   this.destinationPath('dummyfile.txt')
+    // );
   }
 };

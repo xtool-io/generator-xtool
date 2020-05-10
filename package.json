@@ -4,7 +4,7 @@
   "description": "Ferramenta de produtividade xtool",
   "homepage": "https://github.com/xtool-io/generator-xtool",
   "author": {
-    "name": "jcruz",
+    "name": "jribacruz",
     "email": "jribacruz@gmail.com",
     "url": ""
   },
@@ -33,8 +33,10 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.1",
+    "@types/yeoman-generator": "^3.1.4",
     "chalk": "^2.1.0",
+    "xml2js": "^0.4.23",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
   "jest": {
