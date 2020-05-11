@@ -4,16 +4,16 @@
 # WEB CONFIGS 
 #
 server.servlet.context-path=/<%=projectName%>
-server.port=${OB}SERVER_PORT:8080${CB}
+server.port={SERVER_PORT:8080}
 spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS=false
 
 #
 # DATABASE CONFIGS
 #
-spring.datasource.url=${OB}DB_URL:jdbc:h2:./target/db/<%=projectName%>;DB_CLOSE_ON_EXIT=FALSE${CB}
-spring.datasource.driver-class-name=${OB}DB_DRIVER:org.h2.Driver${CB}
-spring.datasource.username=${OB}DB_USERNAME:sa${CB}
-spring.datasource.password=${OB}DB_PASSWORD:${CB}
+spring.datasource.url={DB_URL:jdbc:h2:./target/db/<%=projectName%>;DB_CLOSE_ON_EXIT=FALSE}
+spring.datasource.driver-class-name={DB_DRIVER:org.h2.Driver}
+spring.datasource.username={DB_USERNAME:sa}
+spring.datasource.password={DB_PASSWORD:}
 spring.datasource.sqlScriptEncoding=UTF-8
 spring.h2.console.path=/h2
 spring.h2.console.enabled=true
@@ -28,10 +28,10 @@ spring.jackson.mapper.default-view-inclusion=true
 #
 # LOG CONFIGS
 # 
-logging.level.br.jus=${OB}LOG_LEVEL:DEBUG${CB}
-logging.level.org.hibernate.SQL=${OB}LOG_LEVEL:DEBUG${CB}
-logging.level.org.springframework.jdbc.core.JdbcTemplate=${OB}LOG_LEVEL:debug${CB}
-logging.level.org.keycloak=${OB}LOG_LEVEL:DEBUG${CB}
+logging.level.br.jus={LOG_LEVEL:DEBUG}
+logging.level.org.hibernate.SQL={LOG_LEVEL:DEBUG}
+logging.level.org.springframework.jdbc.core.JdbcTemplate={LOG_LEVEL:debug}
+logging.level.org.keycloak={LOG_LEVEL:DEBUG}
 
 #
 # FLYWAY CONFIGS
@@ -42,18 +42,18 @@ logging.level.org.keycloak=${OB}LOG_LEVEL:DEBUG${CB}
 #
 #KEYCLOAK
 #
-keycloak.auth-server-url=${OB}KEYCLOAK_URL:http://localhost:8085/auth${CB}
-keycloak.realm=${OB}KEYCLOAK_REALM:TRE-PA${CB}
-keycloak.resource=${OB}KEYCLOAK_CLIENT_ID:<%=projectName%>-backend${CB}
-keycloak.credentials.secret=${OB}KEYCLOAK_SECRET:${clientSecret}${CB}
+keycloak.auth-server-url={KEYCLOAK_URL:http://localhost:8085/auth}
+keycloak.realm={KEYCLOAK_REALM:TRE-PA}
+keycloak.resource={KEYCLOAK_CLIENT_ID:<%=projectName%>-backend}
+keycloak.credentials.secret={KEYCLOAK_SECRET:${clientSecret}}
 keycloak.ssl-required=external
 keycloak.use-resource-role-mappings=true
 keycloak.bearer-only=true
 
-kc.adm-user=${OB}KEYCLOAK_ADM_USER:admin${CB}
-kc.adm-pass=${OB}KEYCLOAK_ADM_PASS:admin${CB}
-kc.base-url=${OB}KEYCLOAK_BASE_URL:http://localhost:8080/<%=projectName%>${CB}
-kc.redirect-uris=${OB}KEYCLOAK_REDIRECT_URIS:http://localhost:4200/*,http://localhost:8080/*${CB}
+kc.adm-user={KEYCLOAK_ADM_USER:admin}
+kc.adm-pass={KEYCLOAK_ADM_PASS:admin}
+kc.base-url={KEYCLOAK_BASE_URL:http://localhost:8080/<%=projectName%>}
+kc.redirect-uris={KEYCLOAK_REDIRECT_URIS:http://localhost:4200/*,http://localhost:8080/*}
 
 # Desabilitação do Keyloak para senvir o index.html
 keycloak.policy-enforcer-config.paths[0].path=/*
