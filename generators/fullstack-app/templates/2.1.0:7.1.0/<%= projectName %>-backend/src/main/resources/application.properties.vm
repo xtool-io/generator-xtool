@@ -3,14 +3,14 @@
 #
 # WEB CONFIGS 
 #
-server.servlet.context-path=/${projectName}
+server.servlet.context-path=/<%=projectName%>
 server.port=${OB}SERVER_PORT:8080${CB}
 spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS=false
 
 #
 # DATABASE CONFIGS
 #
-spring.datasource.url=${OB}DB_URL:jdbc:h2:./target/db/${projectName};DB_CLOSE_ON_EXIT=FALSE${CB}
+spring.datasource.url=${OB}DB_URL:jdbc:h2:./target/db/<%=projectName%>;DB_CLOSE_ON_EXIT=FALSE${CB}
 spring.datasource.driver-class-name=${OB}DB_DRIVER:org.h2.Driver${CB}
 spring.datasource.username=${OB}DB_USERNAME:sa${CB}
 spring.datasource.password=${OB}DB_PASSWORD:${CB}
@@ -44,7 +44,7 @@ logging.level.org.keycloak=${OB}LOG_LEVEL:DEBUG${CB}
 #
 keycloak.auth-server-url=${OB}KEYCLOAK_URL:http://localhost:8085/auth${CB}
 keycloak.realm=${OB}KEYCLOAK_REALM:TRE-PA${CB}
-keycloak.resource=${OB}KEYCLOAK_CLIENT_ID:${projectName}-backend${CB}
+keycloak.resource=${OB}KEYCLOAK_CLIENT_ID:<%=projectName%>-backend${CB}
 keycloak.credentials.secret=${OB}KEYCLOAK_SECRET:${clientSecret}${CB}
 keycloak.ssl-required=external
 keycloak.use-resource-role-mappings=true
@@ -52,7 +52,7 @@ keycloak.bearer-only=true
 
 kc.adm-user=${OB}KEYCLOAK_ADM_USER:admin${CB}
 kc.adm-pass=${OB}KEYCLOAK_ADM_PASS:admin${CB}
-kc.base-url=${OB}KEYCLOAK_BASE_URL:http://localhost:8080/${projectName}${CB}
+kc.base-url=${OB}KEYCLOAK_BASE_URL:http://localhost:8080/<%=projectName%>${CB}
 kc.redirect-uris=${OB}KEYCLOAK_REDIRECT_URIS:http://localhost:4200/*,http://localhost:8080/*${CB}
 
 # Desabilitação do Keyloak para senvir o index.html

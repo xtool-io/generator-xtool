@@ -1,5 +1,3 @@
-#set ($OB = "${")
-#set ($CB = "}")
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,18 +5,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>${rootPackage.name}</groupId>
-		<artifactId>${projectName}</artifactId>
+		<groupId><%=rootPackage.name%></groupId>
+		<artifactId><%=projectName%></artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>${rootPackage.name}</groupId>
-	<artifactId>${projectName}-frontend</artifactId>
+	<groupId><%=rootPackage.name%></groupId>
+	<artifactId><%=projectName%>-frontend</artifactId>
 	<version>${OB}project.parent.version${CB}</version>
 	<packaging>jar</packaging>
 
-	<name>${projectName}-frontend</name>
-	<description>${projectDesc}</description>
+	<name><%=projectName%>-frontend</name>
+	<description><%=projectDesc%></description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

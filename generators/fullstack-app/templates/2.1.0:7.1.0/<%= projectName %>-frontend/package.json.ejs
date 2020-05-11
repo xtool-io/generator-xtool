@@ -1,15 +1,15 @@
 {
-  "name": "${projectName}",
+  "name": "<%=projectName%>",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href /${projectName}/ --deploy-url /${projectName}/",
+    "build": "ng build --prod --base-href /<%=projectName%>/ --deploy-url /<%=projectName%>/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-themes": "devextreme build",
-    "bundle-report": "webpack-bundle-analyzer dist/${projectName}/stats.json"
+    "bundle-report": "webpack-bundle-analyzer dist/<%=projectName%>/stats.json"
   },
   "private": true,
   "dependencies": {

@@ -1,4 +1,4 @@
-= ${projectName}
+= <%=projectName%>
 
 :toc:
 :toc-title: Índice
@@ -21,7 +21,7 @@ Passo 1 - Iniciar o keycloak Local na pasta opt
 
 `opt/keycloak-4.8.3.Final/bin/standalone.sh`
 
-Passo 2 - No Spring Tool Suite (STS) clicar sobre a pasta ${projectName}-backend ir em Run AS --> Spring Boot App para iniciar o server
+Passo 2 - No Spring Tool Suite (STS) clicar sobre a pasta <%=projectName%>-backend ir em Run AS --> Spring Boot App para iniciar o server
 
 Passo 3 - No Visual Studio Code (VSC) dar o comando
 
@@ -36,16 +36,16 @@ Passo 1 - Iniciar o keycloak Local na pasta opt
 
 `opt/keycloak-4.8.3.Final/bin/standalone.sh`
 
-Passo 2 - Acessar a pasta ${projectName} e dar o comando abaixo
+Passo 2 - Acessar a pasta <%=projectName%> e dar o comando abaixo
 
 `mvn clean package -Dmaven.test.skip=true`
 
 Passo 3 - Rodar a aplicação com o comando abaixo
 
-`java -jar ${projectName}-backend/target/${projectName}-backend..0.0.1 SNAPSHOT.jar`
+`java -jar <%=projectName%>-backend/target/<%=projectName%>-backend..0.0.1 SNAPSHOT.jar`
 
 
-Passo 4 - Acessar a aplicação no endereço: http://localhost:8080/${projectName}
+Passo 4 - Acessar a aplicação no endereço: http://localhost:8080/<%=projectName%>
 
 === Produção
 
