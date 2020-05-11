@@ -47,6 +47,16 @@ module.exports = class extends Generator {
    * @returns {Promise<void>}
    */
   async writing() {
+    this.rootDir = `br/jus/tre_pa/${this.answers.projectName}`;
+    this.rootPackage = this.rootDir.split('/').join('.');
+    this.answers = {
+      rootPackage: {
+        dir: this.rootDir,
+        name: this.rootPackage
+      },
+      projectDesc: 'Projeto full stack Spring Boot Angular',
+      ...this.answers,
+    }
     const versionOption = this.answers.versionOption;
     let files = await recursive(`${this.sourceRoot()}/${versionOption}`);
     this.destinationRoot(this.answers.projectName);
