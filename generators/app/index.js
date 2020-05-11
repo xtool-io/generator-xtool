@@ -3,34 +3,35 @@ const Generator = require("yeoman-generator");
 const project = require("../@core/project.js");
 const ProjectType = require("../@core/project-type");
 
+/**
+ * Gerador principal.
+ *
+ * @type {exports}
+ */
 module.exports = class extends Generator {
+  async initializing() {
+    this.projectType = await project.getType();
+  }
+
   async prompting() {
     const prompts = [
       {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Bem vindo as opções de um projeto Angular?",
-        default: true,
-        when: (await project.getType()) === ProjectType.ANGULAR
-      },
-      {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Bem vindo as opções de um projeto Fullstack?",
-        default: true,
-        when: (await project.getType()) === ProjectType.FULLSTACK
+        type: "list",
+        name: "mainOption",
+        message: "O que vc deseja fazer?",
+        choices: [
+          {
+            name: "Gerar um projeto Spring Boot e Angular?",
+            value: "../fullstack-app"
+          }
+        ],
+        when: this.projectType === ProjectType.NONE
       }
     ];
     this.answers = await this.prompt(prompts);
   }
 
-  writing() {
-    console.log("Writing...");
-    project.getType().then(value => console.log(value));
-    console.log(this.answers);
-    // This.fs.copy(
-    //   this.templatePath('dummyfile.txt'),
-    //   this.destinationPath('dummyfile.txt')
-    // );
+  end() {
+    this.composeWith(require.resolve(this.answers.mainOption));
   }
 };
