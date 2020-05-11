@@ -20,7 +20,7 @@ class Project {
   async getType() {
     if (fs.existsSync(`${this.execDir}/package.json`)) {
       let pjson = JSON.parse(fs.readFileSync(`${this.execDir}/package.json`));
-      if (pjson.dependencies["@angular/core"]) {
+      if (pjson.dependencies && pjson.dependencies["@angular/core"]) {
         return ProjectType.ANGULAR;
       }
     } else if (fs.existsSync(`${this.execDir}/pom.xml`)) {
