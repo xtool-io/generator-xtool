@@ -15,7 +15,14 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "projectName",
-        message: "Digite o nome do projeto"
+        message: "Digite o nome do projeto",
+        validate: input => {
+          if (!input) {
+            return "O nome do projeto é obrigatório.";
+          }
+
+          return true;
+        }
       },
       {
         type: "list",
