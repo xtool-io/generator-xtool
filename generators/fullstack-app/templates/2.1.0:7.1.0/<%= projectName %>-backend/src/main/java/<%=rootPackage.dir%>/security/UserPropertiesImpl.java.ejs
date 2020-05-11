@@ -1,0 +1,42 @@
+package <%=rootPackage.name%>.security;
+
+import org.keycloak.KeycloakSecurityContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+class UserPropertiesImpl implements UserProperties {
+	
+	@Autowired
+	private KeycloakSecurityContext keycloak;
+
+	@Override
+	public String getName() {
+		return keycloak.getToken().getGivenName();
+	}
+
+	@Override
+	public String getFullName() {
+		return keycloak.getToken().getName();
+	}
+
+	@Override
+	public String getFamilyName() {
+		return keycloak.getToken().getFamilyName();
+	}
+
+	@Override
+	public String getEmail() {
+		return keycloak.getIdToken().getEmail() ;
+	}
+
+	@Override
+	public String getLogin() {
+		return keycloak.getToken().getPreferredUsername();
+	}
+	
+	public String getSiglaUnidade() {
+		return keycloak.getToken().getOtherClaims().get("department").toString();
+	}
+
+}
