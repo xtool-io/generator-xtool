@@ -1,0 +1,13 @@
+<fa-icon id="{{id}}" style="font-size: 16px;background-color: transparent; color: gray"
+         (mouseenter)="toggleDefault()"
+         (mouseleave)="toggleDefault()"
+         [icon]="['fas','question-circle']"></fa-icon>
+<dx-popover
+        target="#{{id}}"
+        position="top"
+        [(visible)]="defaultVisible"
+        [width]="300">
+  <div *dxTemplate="let data = model of 'content'">
+    {{ text }}
+  </div>
+</dx-popover>

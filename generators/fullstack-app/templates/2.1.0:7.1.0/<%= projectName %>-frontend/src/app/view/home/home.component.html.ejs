@@ -1,0 +1,8 @@
+<app-side-nav-outer-toolbar toolbarTitle="<%=projectName%>" [menuItems]="navigation">
+    <section>
+    </section>
+    <ng-template #separatorTemplate>
+        <fa-icon [icon]="['fas', 'chevron-circle-right']"></fa-icon>
+    </ng-template>
+    <router-outlet></router-outlet>
+</app-side-nav-outer-toolbar>
