@@ -3,6 +3,7 @@ const Generator = require("yeoman-generator");
 const recursive = require("recursive-readdir");
 const path = require("path");
 const ejs = require("ejs");
+const { v4: uuidv4 } = require('uuid');
 
 /**
  * Gerador de scaffolding de projetos Spring Boot e Angular.
@@ -55,6 +56,7 @@ module.exports = class extends Generator {
         name: this.rootPackage
       },
       projectDesc: 'Projeto full stack Spring Boot Angular',
+      backendSecret: uuidv4(),
       ...this.answers,
     }
     const versionOption = this.answers.versionOption;

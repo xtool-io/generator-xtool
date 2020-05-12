@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-c", help="Endereço de conexão do Keycloak", default="http://localhost:8085/")
 parser.add_argument("-u", help="Usuário administrador do Keycloak", default="admin")
 parser.add_argument("-p", help="Senha do usuário administrador do Keycloak", default="admin")
-parser.add_argument("-s", help="Secret do client", required=True)
+parser.add_argument("-s", help="Secret do client", default="<%=backendSecret%>")
 parser.add_argument("-f", help="Arquivo .yml com as informações do client.",  default=project_name+"-backend/src/main/resources/keycloak/kc.yml")
 args = parser.parse_args()
 

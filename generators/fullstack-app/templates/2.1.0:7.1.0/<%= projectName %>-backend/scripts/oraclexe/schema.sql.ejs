@@ -1,0 +1,12 @@
+connect system/oracle
+
+create tablespace adm<%=projectName%> datafile '/u01/app/oracle/oradata/XE/adm<%=projectName%>01.dbf' size 50m online;
+
+create user adm<%=projectName%> identified by adm<%=projectName%> default tablespace adm<%=projectName%> temporary tablespace temp;
+
+grant resource to adm<%=projectName%>;
+grant connect to adm<%=projectName%>;
+
+alter user adm<%=projectName%> default role connect, resource;
+
+exit;
