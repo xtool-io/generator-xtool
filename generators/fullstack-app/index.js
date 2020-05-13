@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 const recursive = require("recursive-readdir");
 const path = require("path");
 const ejs = require("ejs");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 /**
  * Gerador de scaffolding de projetos Spring Boot e Angular.
@@ -49,16 +49,16 @@ module.exports = class extends Generator {
    */
   async writing() {
     this.rootDir = `br/jus/tre_pa/${this.answers.projectName}`;
-    this.rootPackage = this.rootDir.split('/').join('.');
+    this.rootPackage = this.rootDir.split("/").join(".");
     this.answers = {
       rootPackage: {
         dir: this.rootDir,
         name: this.rootPackage
       },
-      projectDesc: 'Projeto full stack Spring Boot Angular',
+      projectDesc: "Projeto full stack Spring Boot Angular",
       backendSecret: uuidv4(),
-      ...this.answers,
-    }
+      ...this.answers
+    };
     const versionOption = this.answers.versionOption;
     let files = await recursive(`${this.sourceRoot()}/${versionOption}`);
     this.destinationRoot(this.answers.projectName);
