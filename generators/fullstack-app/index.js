@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 const recursive = require("recursive-readdir");
 const path = require("path");
 const ejs = require("ejs");
-const {v4: uuidv4} = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 /**
  * Gerador de scaffolding de projetos Spring Boot e Angular.
@@ -39,7 +39,7 @@ module.exports = class extends Generator {
       },
       {
         type: "input",
-        name: "rootPackage",
+        name: "groupId",
         message: "Digite o groupId do projeto backend",
         store: true,
         validate: input => {
@@ -79,6 +79,15 @@ module.exports = class extends Generator {
    * @returns {Promise<void>}
    */
   async writing() {
+    this.rootDir = `${this.answers.groupId.split(".").join("/")}/${this.answers.projectName}`;
+    this.rootPackage = this.rootDir.split("/").join(".");
+    this.answers = {
+      rootPackage: {
+        dir: this.rootDir,
+        name: this.rootPackage
+      },
+      ...this.answers
+    };
     const versionOption = this.answers.versionOption;
     let files = await recursive(`${this.sourceRoot()}/${versionOption}`);
     this.destinationRoot(this.answers.projectName);
