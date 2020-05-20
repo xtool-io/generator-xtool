@@ -3,7 +3,7 @@ const Generator = require("yeoman-generator");
 const recursive = require("recursive-readdir");
 const path = require("path");
 const ejs = require("ejs");
-const { v4: uuidv4 } = require("uuid");
+const {v4: uuidv4} = require("uuid");
 
 /**
  * Gerador de scaffolding de projetos Spring Boot e Angular.
@@ -72,9 +72,8 @@ module.exports = class extends Generator {
   }
 
   /**
-   * Itera por todos os arquivos do diretório de acordo com a versão especificada em 'versionOption'.
-   * Caso o arquivo possui a extensão .ejs o mesmo será copiado com templatização e a extensão .ejs será removida
-   * no final da cópia.
+   * Itera por todos os arquivos do diretório /templates/{versionOption} de acordo com a versão especificada em 'versionOption' no prompt de entrada.
+   * Caso o arquivo possui a extensão .ejs o mesmo será copiado com templatização e a extensão .ejs será removida no final da cópia.
    * Caso não possua a extensão .ejs uma cópia sem templatização será realizada.
    * @returns {Promise<void>}
    */
