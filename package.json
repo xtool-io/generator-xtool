@@ -1,5 +1,5 @@
 {
-  "name": "generator-xtool",
+  "name": "@xtool-io/generator-xtool",
   "version": "1.0.0",
   "description": "Ferramenta de produtividade xtool",
   "homepage": "https://github.com/xtool-io/generator-xtool",
@@ -36,6 +36,7 @@
     "@types/yeoman-generator": "~3.1.4",
     "chalk": "~2.1.0",
     "ejs": "~3.1.2",
+    "express": "^4.17.1",
     "recursive-readdir": "~2.2.2",
     "uuid": "^8.0.0",
     "xml2js": "~0.4.23",
@@ -80,6 +81,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "jribacruz/generator-xtool",
+  "repository": "git://github.com/xtool-io/generator-xtool.git",
   "license": "Apache-2.0"
 }

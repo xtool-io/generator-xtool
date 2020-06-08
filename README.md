@@ -7,7 +7,7 @@ Primeiro, instale o [Yeoman](http://yeoman.io) e em seguida o generator-xtool us
 
 ```bash
 npm install -g yo
-npm install -g generator-xtool
+npm install -g @xtool-io/generator-xtool
 ```
 
 Em seguida dentro da estrutura de diretórios de projetos (ex: ~/git) digite:
