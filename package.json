@@ -1,5 +1,5 @@
 {
-  "name": "@xtool-io/generator-xtool",
+  "name": "generator-xtool",
   "version": "1.0.0",
   "description": "Ferramenta de produtividade xtool",
   "homepage": "https://github.com/xtool-io/generator-xtool",
