@@ -16,6 +16,8 @@ Em seguida dentro da estrutura de diretórios de projetos (ex: ~/git) digite:
 yo xtool
 ```
 
+Depois é só seguir as opções exibidas pela ferramenta.
+
 ## License
 
 Apache-2.0 © [jcruz]()
