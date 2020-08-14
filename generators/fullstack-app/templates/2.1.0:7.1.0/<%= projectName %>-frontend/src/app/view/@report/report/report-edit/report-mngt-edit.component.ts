@@ -9,10 +9,9 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import DataSource from 'devextreme/data/data_source';
-
 import { MngtReportService } from 'src/app/view/@report/mngt-report.service';
-import { JiiStore } from 'src/app/@core/jii/jii-store';
 import { Report } from 'src/app/domain/report';
+import { UdfStore } from 'src/app/@lib/umari/datafilter-dx/udf-store';
 
 @Component({
   selector: 'app-report-mngt-edit',
@@ -36,12 +35,11 @@ export class ReportMngtEditComponent implements OnInit {
   ngOnInit() {
     this.processReport();
     this.categoryDataSource = new DataSource({
-      store: new JiiStore(this.httpClient, '/mngt/jreport', {
+      store: new UdfStore(this.httpClient, '/mngt/jreport', {
         key: null,
         endpoints: {
           load: `/mngt/jreport/categories`
-        },
-        loadByGet: true
+        }
       }),
       paginate: true,
       pageSize: 10

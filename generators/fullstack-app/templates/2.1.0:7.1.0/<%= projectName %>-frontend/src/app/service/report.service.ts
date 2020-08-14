@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 
 import { environment } from 'src/environments/environment';
 import { CrudService } from 'src/app/@core/crud.service';
-import { JiiFilterable } from 'src/app/@core/jii/filter/jii-filterable';
 import { Report } from 'src/app/domain/report';
 import { Subscription } from 'rxjs';
 
@@ -29,7 +28,7 @@ export class ReportService extends CrudService<Report> {
     };
   }
 
-  export(id: number, title: string, params?: string, filter?: JiiFilterable): Subscription {
+  export(id: number, title: string, params?: string, filter?: any): Subscription {
     let url = `${this.url}/${id}/pdf`;
     return this.http.post(`${url}${params ? `?${params}` : ''}`, filter, {
       responseType: 'blob',

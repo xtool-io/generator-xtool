@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { JiiPage } from './jii/jii-page';
-import { JiiPayload } from './jii/jii-payload';
-import { Page } from './page';
+import { Page } from '../@lib/umari/datafilter/core/page';
 
 
 
@@ -77,8 +75,8 @@ export abstract class CrudService<T> {
   /**
    * Endpoint padrão para filtragem de dados.
    */
-  public filter(sort: string, page: number = 0, size: number = 20, jiiPayload?: JiiPayload): Observable<JiiPage<T>> {
-    return this._http.post<JiiPage<T>>(`${environment.urlbase}${this.apiContext}/filter?sort=${sort}&page=${page}&size=${size}`, jiiPayload);
+  public filter(sort: string, page: number = 0, size: number = 20, jiiPayload?: any): Observable<Page<T>> {
+    return this._http.post<Page<T>>(`${environment.urlbase}${this.apiContext}/filter?sort=${sort}&page=${page}&size=${size}`, jiiPayload);
   }
 
 }

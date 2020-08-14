@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { JiiStore } from 'src/app/@core/jii/jii-store';
+import { UdfStore } from 'src/app/@lib/umari/datafilter-dx/udf-store';
 import { Report } from 'src/app/domain/report';
 
 @Component({
@@ -19,7 +19,7 @@ export class ReporMngttListComponent implements OnInit {
 
   pageSize: number = 20;
 
-  reportStore: JiiStore<Report>;
+  reportStore: UdfStore<Report>;
 
   constructor(
     private httpClient: HttpClient,
@@ -29,7 +29,7 @@ export class ReporMngttListComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Gerência de Relatórios');
-    this.reportStore = new JiiStore(this.httpClient, '/mngt/jreport');
+    this.reportStore = new UdfStore(this.httpClient, '/mngt/jreport');
   }
 
   create() {
